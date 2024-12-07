@@ -1,0 +1,40 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Kontak</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nama</th>
+                        <th scope="col">No HP</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>
+                                <%= contact.nama %>
+                            </td>
+                            <td>
+                                <%= contact.noHP %>
+                            </td>
+                            <td>
+                                <%= contact.email %>
+                            </td>
+                            <td>
+                                <a href="../contact/edit/<%= contact._id %>" class="btn btn-info rounded-pill badge"><i class="bi bi-pencil-square"></i> Ubah </i></a>
+                                <a href="../contact/delete/<%= contact._id %>" class="btn btn-danger rounded-pill badge" onclick="return confirm('Yakin Menghapus?')"><i class="bi bi-trash3"></i> Hapus </i></a>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <a href="../contact"> << Kembali ke Daftar Contact</a>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

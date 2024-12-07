@@ -1,0 +1,50 @@
+<%- include('../partials/header') %>
+    <%- include('../partials/nav', {active: "contact"}) %>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Daftar Kontak</h2>
+                    <a href="../contact/add" class="btn btn-primary mb-2"> Tambah Kontak </i></a>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nama</th>
+                                <th scope="col">No HP</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% if (contacts.length != 0) { %>
+                                <% contacts.forEach((contact, i)=> { %>
+                                    <tr>
+                                        <th scope="row">
+                                            <%= i + 1 %>
+                                        </th>
+                                        <td>
+                                            <%= contact.nama %>
+                                        </td>
+                                        <td>
+                                            <%= contact.noHP %>
+                                        </td>
+                                        <td>
+                                            <a href="../contact/<%= contact._id %>" class="btn btn-success rounded-pill badge"><i class="bi bi-info-circle"> Detil </i></a>
+                                            <a href="../contact/delete/<%= contact._id %>" class="btn btn-danger rounded-pill badge" onclick="return confirm('Yakin Menghapus?')"><i class="bi bi-trash3"></i> Hapus </i></a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            <% } else { %>
+                                    <tr>
+                                        <th colspan="4">Data Kontak Kosong</th>
+                                    </tr>
+                            <% } %> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+        <%- include('../partials/footer') %>
